@@ -1,3 +1,16 @@
 # htopclone
-A simple htop clone to learn more about C and linux.
-AI use: limited, only used AI to find bugs and sometimes to fix them.
+## Build
+
+**Requirements**
+- GCC
+- Linux (reads from /proc, won't work on Mac or Windows)
+
+**Compile**
+```bash
+gcc -Wall -Wextra -o htopclone main.c stats.c memory.c
+```
+
+**Run**
+```bash
+./htopclone
+```

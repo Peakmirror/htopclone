@@ -93,20 +93,20 @@ int cores_usage(void) {
     if (prev == NULL || curr == NULL) {
         free(prev);
         free(curr);
-        fprintf(stderr, "Failed to allocate memory\n");
+        printf(stderr, "Failed to allocate memory\n");
         return 1;
     }
 
     f = fopen("/proc/stat", "r");
     if (f == NULL) {
-        fprintf(stderr, "Failed to open /proc/stat\n");
+        printf(stderr, "Failed to open /proc/stat\n");
         free(prev);
         free(curr);
         return 1;
     }
 
     if (read_core_snapshots(f, prev, core_count) != 0) {
-        fprintf(stderr, "Failed to read CPU snapshots\n");
+        printf(stderr, "Failed to read CPU snapshots\n");
         fclose(f);
         free(prev);
         free(curr);
@@ -116,7 +116,7 @@ int cores_usage(void) {
     sleep(1);
 
     if (read_core_snapshots(f, curr, core_count) != 0) {
-        fprintf(stderr, "Failed to read CPU snapshots\n");
+        printf(stderr, "Failed to read CPU snapshots\n");
         fclose(f);
         free(prev);
         free(curr);
